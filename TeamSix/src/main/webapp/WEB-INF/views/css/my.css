@@ -21,9 +21,11 @@ body, h1, h2, h3, h4, h5, h6 {
 /* admin *//* admin *//* admin */
 .adminHeader a {
     font-size: 20px;
-   padding:20%
+   	padding:20%
 }
-
+.adminHeader .navbar-header.col-sm-4.mynav_c {
+    padding: 15px;
+}
 
 /* header *//* header *//* header */
 
@@ -116,51 +118,6 @@ a:hover{
 #footer .mynav_f li {
 	margin-right: 5px;
 }
-
-/* 혜진 수정 시작 */
-div.cont1 {
-	margin-top:50px;
-}
-
-div.sidebar1 {
-	height:500px;
-	margin-top:80px;
-	background-color:black;
-}
-
-div.sidevar_num1, div.sidevar_num2, div.sidevar_num3 {
-	height:167px;
-	width:120%
-}
-
-div.cont2 {
-	margin-top:30px;
-	margin-bottom:100px;
-}
-
-div.col-head {
-	background-color:#333333; 
-	color:white;
-}
-
-.col-head>p.title {
-	font-size: 16px;
-	font-weight: bolder;
-}
-
-.col-body>div.list {
-	background-color:rgb(242,242,242);
-	height: 500px; 
-	padding:12px;
-}
-
-div.regbtn>a#regbtn {
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-
-/* 혜진 수정 끝 */
 
 
 /* .bd-navbar {
