@@ -1,4 +1,4 @@
-package com.company.controller;
+package com.teamsix.controller;
 
 import java.util.List;
 

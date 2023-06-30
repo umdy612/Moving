@@ -29,23 +29,7 @@ public class Reply {
 				+ replycontent + ", star=" + star + ", replydate=" + replydate + ", replyip=" + replyip + "]";
 	}
 
-	
 
-	public String getUserid() {
-		return userid;
-	}
-
-	public void setUserid(String userid) {
-		this.userid = userid;
-	}
-
-	public int getStar() {
-		return star;
-	}
-
-	public void setStar(int star) {
-		this.star = star;
-	}
 
 	public int getMoviesrn() { return moviesrn; }    
 	public void setMoviesrn(int moviesrn) { this.moviesrn = moviesrn; }
@@ -55,6 +39,9 @@ public class Reply {
 	
 	public String getReplycontent() { return replycontent; }
 	public void setReplycontent(String replycontent) { this.replycontent = replycontent; }
+	
+	public int getstar() { return star; }
+	public void setstar(int star) { this.star = star; }
 	
 	public String getReplydate() { return replydate; }
 	public void setReplydate(String replydate) { this.replydate = replydate; }

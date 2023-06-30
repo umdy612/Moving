@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.teamsix.dao.TicketingDao"> 
+	<!-- 예매하기 -->
+	<!-- 영화리스트 뽑기 -->
+	<select id="selectMovie" resultType="MovieVO" >
+		select * from Theater order by theatername asc
+	</select>
+	<!-- 영화관리스트 뽑기 -->
+	<select id="selectTheater" resultType="TheaterVO">
+		select * from Theater order by theatername asc;
+	</select>
+	<!-- 상영스케줄 뽑기 : <영화,영화관,날짜> 날짜는 앞에서 선택한 값을 input type=hidden으로 -->
+	<select id="selectMovieSchedule" parameterType="java.util.HashMap" resultType="MovieScheduleVO" > 
+		select m.schedulesrn ,m.screeningtime from MovieSchedule m join TheaterRoom r using(roomsrn) 
+		where r.theatersrn=#{keyword1} and m.moviesrn=#{keyword2} and m.screeningdate=#{keyword3}
+	</select>
+	<!-- 결제하기 -->
+	<insert id="payInsert" parameterType="java.util.HashMap">
+		insert into Payment (totalprice, paymentmethod, payip) values (#{keyword1},#{keyword2},#{keyword3})
+	</insert>
+	<!-- 예매DB에 삽입 -->
+	<insert id="ticketInsert" parameterType="java.util.HashMap"> 
+		insert into Ticketing (paysrn, userid, schedulesrn) values (#{keyword1}, #{keyword2}, #{keyword3})
+	</insert>
+	<!-- 관객DB에 삽입 -->
+	<insert id="audienceInsert" parameterType="java.util.HashMap"> 
+		insert into Audience (ticket_type, seat, paysrn) values (#{keyword1}, #{keyword2}, #{keyword3})
+	</insert>
+</mapper>
