@@ -7,11 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class TheaterRoom {
-	private int roomsrn;
+public class TheaterList {
+	private String theatername;
+	private int count;
+	private String location;
 	private int theatersrn;
-	private String roomname;
-	private String seat_row;
-	private String seat_col;
-	
 }

@@ -12,7 +12,6 @@ public class Movie {
 	private String link;
 	private String releasedate;
 	private String closedate;
-	private float star;
 	
 	public Movie() { super(); }
 	
@@ -36,13 +35,9 @@ public class Movie {
 	public String toString() {
 		return "Movie [moviesrn=" + moviesrn + ", title=" + title + ", director=" + director + ", genre=" + genre
 				+ ", rating=" + rating + ", detail=" + detail + ", poster=" + poster + ", runningtime=" + runningtime
-				+ ", link=" + link + ", releasedate=" + releasedate + ", closedate=" + closedate + ", star=" + star
-				+ "]";
+				+ ", link=" + link + ", releasedate=" + releasedate + ", closedate=" + closedate + "]";
 	}
-
-	public float getStar() { return star; }  
-	public void setStar(float star) { this.star = star; }
-
+	
 	public int getMoviesrn() { return moviesrn; }
 	public void setMoviesrn(int moviesrn) { this.moviesrn = moviesrn; }
 	
