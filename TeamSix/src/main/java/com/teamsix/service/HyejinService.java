@@ -9,7 +9,7 @@ public interface HyejinService {
 	//관리자_영화관등록
 	// 영화관 리스트 및 해당 영화관 읽기
 	public List<TheaterList> theaterList();
-	public Theater theaterCheck(int srn); // 해당 영화관 정보_상영관리스트랑 같이
+	public Theater theaterCheck(int srn); // 영화관 정보_상영관리스트랑 같이
 		
 	// 영화관 등록하기
 	public int theaterInsert(Theater th);
@@ -44,8 +44,10 @@ public interface HyejinService {
 	//예매하기
 	//영화 리스트 뽑기 + 영화관 + 상영스케줄
 	public List<Movie> selectMovie(); 
-	//영화관 리스트 뽑기
+	//전체 영화관 리스트 뽑기
 	public List<Theater> selectTheater();
+	//해당 영화 영화관 리스트 뽑기
+	public List<Theater> selectCheckTheater(int moviesrn);
 	//상영스케줄 뽑기
 	public List<MovieSchedule> selectMovieSchedule(Map<String, Object> para); //Object로 넣기 
 		

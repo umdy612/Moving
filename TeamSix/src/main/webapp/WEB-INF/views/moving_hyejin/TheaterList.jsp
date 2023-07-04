@@ -44,7 +44,7 @@
 			</thead>
 			<tbody>
 			<c:forEach var="list" items="${list}" varStatus="status">
-		 		<tr><td>${status.index + 1}</td><td>${list.theatername}</td><td>${list.count}</td>
+		 		<tr><td>${status.count}</td><td>${list.theatername}</td><td>${list.count}</td>
 		 		<td>${list.location}</td><td><a href="${pageContext.request.contextPath}/hj/theateredit.hj?theatersrn=${list.theatersrn}" class="btn btn-default">수정하기</a></td></tr>
 		 	</c:forEach>
 			</tbody>

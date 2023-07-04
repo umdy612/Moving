@@ -6,11 +6,17 @@
 	<!-- 예매하기 -->
 	<!-- 영화리스트 뽑기 -->
 	<select id="selectMovie" resultType="MovieVO" >
-		select * from Theater order by theatername asc
+		select * from Movie order by title asc
 	</select>
-	<!-- 영화관리스트 뽑기 -->
+	<!-- 영화관리스트 전체 뽑기 (첫화면에 보여줄 것 )-->
 	<select id="selectTheater" resultType="TheaterVO">
-		select * from Theater order by theatername asc;
+		select * from Theater  order by theatername asc;
+	</select>
+	<!-- 해당 영화에 맞는 영화관 리스트 뽑기 (영화 선택 후에 출력) -->
+	<select id="selectCheckTheater" parameterType="int" resultType="TheaterVO">
+		select theatersrn, theatername, location, manager, contactnum from theater 
+		join theaterroom using(theatersrn) join MovieSchedule using(roomsrn)
+		where moviesrn=#{moviesrn} order by theatername asc;
 	</select>
 	<!-- 상영스케줄 뽑기 : <영화,영화관,날짜> 날짜는 앞에서 선택한 값을 input type=hidden으로 -->
 	<select id="selectMovieSchedule" parameterType="java.util.HashMap" resultType="MovieScheduleVO" > 
