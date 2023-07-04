@@ -28,7 +28,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Faster+One&display=swap" rel="stylesheet">
 
 <!-- css -->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/moving/css/my.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/my.css">
 
 </head>
 <body>
@@ -48,7 +48,7 @@
 				<div class="navbar-header col-sm-4  mynav_c">
 					<a class="main m1"
 						href="${pageContext.request.contextPath}/PATH">MOVING</a>
-					<img src="${pageContext.request.contextPath}/moving/images/moving.png" alt="moving" />
+					<img src="${pageContext.request.contextPath}/resources/images/moving.png" alt="moving" />
 				</div>
 				
 				<div class="col-sm-4  mynav_r">

@@ -116,6 +116,11 @@ public class HyejinServiceImpl implements HyejinService {
 	public List<MovieSchedule> selectMovieSchedule(Map<String, Object> para) {
 		return tdao.selectMovieSchedule(para);
 	}
+
+	@Override
+	public List<Theater> selectCheckTheater(int moviesrn) {
+		return tdao.selectCheckTheater(moviesrn);
+	}
 	
 	
 }

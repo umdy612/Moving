@@ -10,7 +10,7 @@
 		where t.userid=#{userid}
 	</select>
 	<select id="checkDetail" parameterType="java.util.HashMap" resultType="TicketCheckDetailVO">
-		select tt.audience_type, count(*) as `numbers`, group_concat(a.seat separator ' / ') as`seat` from audience a
+		select tt.audience_type, count(*) as `numbers`, group_concat(a.seat separator ' ') as`seat` from audience a
 		join ticketing t using(paysrn) join ticket_type tt using(ticket_type) where t.userid =#{keyword1} and a.paysrn=#{keyword2}
 		group by tt.audience_type order by tt.audience_type asc
 	</select>
