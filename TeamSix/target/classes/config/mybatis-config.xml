@@ -19,5 +19,6 @@
       <typeAlias type="com.teamsix.dto.TicketCheckDetail"  alias="TicketCheckDetailVO" />
       <typeAlias type="com.teamsix.dto.Ticketing"  alias="TicketingVO" />
       <typeAlias type="com.teamsix.dto.User"  alias="UserVO" />
+      <typeAlias type="com.teamsix.dto.MypageReply"  alias="MypageReplyVO" />
    </typeAliases>
 </configuration>
