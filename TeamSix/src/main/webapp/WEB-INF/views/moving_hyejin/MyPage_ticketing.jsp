@@ -8,6 +8,9 @@
 <script>
 	var ticketdelete = '${delete}';
 	if(ticketdelete.length != 0){alert(ticketdelete);}
+	
+	var paysuccess = '${paysuccess}';
+	if(paysuccess.length != 0){alert(paysuccess);}
 </script>
 <div class="container panel" style="margin-top:30px; margin-bottom:100px">
 	<div class="row">
@@ -31,7 +34,7 @@
 						<th scope="col">상영관</th>
 						<th scope="col">관람날짜</th>
 						<th scope="col">관람시간</th>
-						<th scope="col">예매취소</th>
+						<th scope="col">예매정보</th>
 					</tr>
 				</thead>
 				<c:forEach var="list" items="${list}" varStatus="status" >
@@ -40,7 +43,7 @@
 						<td>${status.count}</td><td>${list.title}</td><td>${list.roomname}</td><td>${list.screeningdate}</td>
 						<td>${list.screeningtime}</td>
 						<td><a
-						class="btn btn-default ticketdelete" id="ticketdelete${status.index}" data-role="${list.paysrn}">예매취소</a>
+						class="btn btn-default ticketdelete" id="ticketdelete${status.index}" data-role="${list.paysrn}">예매정보</a>
 						<input type="hidden" id="paysrn${list.paysrn}" value="${list.paysrn}" >
 						<input type="hidden" id="title${list.paysrn}" value="${list.title}" >
 						<input type="hidden" id="roomname${list.paysrn}" value="${list.roomname}" >
@@ -135,14 +138,14 @@
 							for(var i=0; i<total; i++){
 								$("<tr>")
 								.append($("<td>").html(json.result[i].audience_type))
-								.append($("<td>").html(json.result[i].seat))
+								.append($("<td>").html("["+json.result[i].seat+"]" ))
 								.append($("<td>").html(json.result[i].numbers))
 								.appendTo(".checktable tbody");
 							}
 						} else {
 							$("<tr>")
 							.append($("<td>").html(json.result[0].audience_type))
-							.append($("<td>").html(json.result[0].seat))
+							.append($("<td>").html("["+json.result[0].seat+"]" ))
 							.append($("<td>").html(json.result[0].numbers))
 							.appendTo(".checktable tbody");
 						}

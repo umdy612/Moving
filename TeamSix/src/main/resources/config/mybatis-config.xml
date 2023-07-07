@@ -3,21 +3,24 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-   <typeAliases>
-      <typeAlias type="com.teamsix.dto.TheaterList"  alias="TheaterListVO" />
-      <typeAlias type="com.teamsix.dto.Admin"  alias="AdminVO" />
-      <typeAlias type="com.teamsix.dto.Audience"  alias="AudienceVO" />
-      <typeAlias type="com.teamsix.dto.Movie"  alias="MovieVO" />
-      <typeAlias type="com.teamsix.dto.MovieSchedule"  alias="MovieScheduleVO" />
-      <typeAlias type="com.teamsix.dto.MyMovingTheater"  alias="MyMovingTheaterVO" />
-      <typeAlias type="com.teamsix.dto.Payment"  alias="PaymentVO" />
-      <typeAlias type="com.teamsix.dto.Reply"  alias="ReplyVO" />
-      <typeAlias type="com.teamsix.dto.Theater"  alias="TheaterVO" />
-      <typeAlias type="com.teamsix.dto.TheaterRoom"  alias="TheaterRoomVO" />
-      <typeAlias type="com.teamsix.dto.Ticket_type"  alias="Ticket_typeVO" />
-      <typeAlias type="com.teamsix.dto.TicketCheck"  alias="TicketCheckVO" />
-      <typeAlias type="com.teamsix.dto.TicketCheckDetail"  alias="TicketCheckDetailVO" />
-      <typeAlias type="com.teamsix.dto.Ticketing"  alias="TicketingVO" />
-      <typeAlias type="com.teamsix.dto.User"  alias="UserVO" />
-   </typeAliases>
+	<typeAliases>
+		<typeAlias type="com.teamsix.dto.TheaterList"  alias="TheaterListVO" />
+		<typeAlias type="com.teamsix.dto.Admin"  alias="AdminVO" />
+		<typeAlias type="com.teamsix.dto.Audience"  alias="AudienceVO" />
+		<typeAlias type="com.teamsix.dto.Movie"  alias="MovieVO" />
+		<typeAlias type="com.teamsix.dto.MovieSchedule"  alias="MovieScheduleVO" />
+		<typeAlias type="com.teamsix.dto.MyMovingTheater"  alias="MyMovingTheaterVO" />
+		<typeAlias type="com.teamsix.dto.Payment"  alias="PaymentVO" />
+		<typeAlias type="com.teamsix.dto.Reply"  alias="ReplyVO" />
+		<typeAlias type="com.teamsix.dto.Theater"  alias="TheaterVO" />
+		<typeAlias type="com.teamsix.dto.TheaterRoom"  alias="TheaterRoomVO" />
+		<typeAlias type="com.teamsix.dto.Ticket_type"  alias="Ticket_typeVO" />
+		<typeAlias type="com.teamsix.dto.TicketCheck"  alias="TicketCheckVO" />
+		<typeAlias type="com.teamsix.dto.TicketCheckDetail"  alias="TicketCheckDetailVO" />
+		<typeAlias type="com.teamsix.dto.Ticketing"  alias="TicketingVO" />
+		<typeAlias type="com.teamsix.dto.User"  alias="UserVO" />
+		<!-- 해인님 추가 -->
+		<typeAlias type="com.teamsix.dto.PagingDto"  alias="PagingDtoVO" />
+		<typeAlias type="com.teamsix.dto.MypageReply"  alias="MypageReplyVO" />
+	</typeAliases>
 </configuration>

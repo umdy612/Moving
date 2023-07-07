@@ -40,5 +40,13 @@
 	<delete id="theaterRoomDelete" parameterType="int" >
 		delete from TheaterRoom where roomsrn=#{roomsrn}
 	</delete>
+	
+	<!-- 상영스케줄 -->
+	<select id="searchroomlist" resultType="TheaterRoomVO" parameterType="String">
+      <bind name="pattern" value="'%' + pattern + '%'" />
+      	select roomsrn, theatersrn, roomname, seat_row, seat_col from theaterroom join theater using(theatersrn) where theatername=#{pattern};
+   </select>
+	
+	
 </mapper>
 	

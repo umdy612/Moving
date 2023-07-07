@@ -90,8 +90,12 @@ public class HyejinServiceImpl implements HyejinService {
 		return tdao.selectMovie();
 	}
 	@Override
-	public int payInsert(Map<String, String> para) {
+	public int payInsert(Map<String, Object> para) {
 		return tdao.payInsert(para);
+	}
+	@Override
+	public int selectPaysrn() {
+		return tdao.selectPaysrn();
 	}
 	@Override
 	public int ticketInsert(Map<String, Object> para) {
@@ -121,6 +125,72 @@ public class HyejinServiceImpl implements HyejinService {
 	public List<Theater> selectCheckTheater(int moviesrn) {
 		return tdao.selectCheckTheater(moviesrn);
 	}
+
+	@Override
+	public Movie selectUmovie(int moviesrn) {
+		return tdao.selectTmovie(moviesrn);
+	}
+
+	@Override
+	public TheaterRoom selectUroom(int schedulesrn) {
+		return tdao.selectTroom(schedulesrn);
+	}
+
+	@Override
+	public MovieSchedule selectUschedule(int schedulesrn) {
+		return tdao.selectTschedule(schedulesrn);
+	}
+
+	//관객타입 반환 (성인-1, 청소년-2, 경로-3)
+	@Override
+	public int selectUatype(String id) {
+		int tickettype=0;
+		if(id.contains("a")) { tickettype=1;
+		}else if(id.contains("y")) { tickettype=2; 
+		}else if(id.contains("o")){ tickettype=3; }
+		return tickettype;
+	}
 	
+	//관객타입의 갯수 반환 (몇장인지)
+	@Override
+	public int selectUasum(String id) {
+		String[] arr = id.split("_");
+		int typesum = Integer.parseInt(arr[1]);
+		return typesum;
+	}
+
+	//선택한 타입의 총가격 반환 
+	@Override
+	public int selectUprice(String id) {
+		int price=0;
+		String[] arr = id.split("_");
+		int num = Integer.parseInt(arr[1]);
+		
+		if(arr[0].equals("a")) {
+			price = num*10000;
+		}else if(arr[0].equals("y")) {
+			price = num*8000;
+		}else if(arr[0].equals("o")){
+			price = num*6000;
+		}
+		return price;
+	}
+	
+	@Override
+	public List<String> selectPayedseat(int schedulesrn) {
+		return tdao.selectPayedseat(schedulesrn);
+	}
+
+	@Override
+	public int selectPayedsum(int schedulesrn) { 
+		return tdao.selectPayedsum(schedulesrn);
+	}
+
+	// 스케줄 등록
+	// 상영관 리스트 
+	@Override
+	public List<TheaterRoom> searchroomlist(String search) {
+		return atdao.searchroomlist(search);
+	}
 	
 }

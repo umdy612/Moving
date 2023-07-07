@@ -19,6 +19,11 @@ public interface HyejinService {
 	public int theaterUpdate(Theater th);
 	// 영화관 삭제하기
 	public int theaterDelete(int srn);
+	
+	//관리자_스케줄등록
+	// 영화관 지점 검색 후 상영관 리스트 뽑기
+	public List<TheaterRoom> searchroomlist(String search);
+	
 		
 	// 상영관 리스트
 	public List<TheaterRoom> theaterRoomList(int srn); // 영화관srn을 통해 상영관list뽑기 + 해당 영화관 읽기
@@ -50,9 +55,29 @@ public interface HyejinService {
 	public List<Theater> selectCheckTheater(int moviesrn);
 	//상영스케줄 뽑기
 	public List<MovieSchedule> selectMovieSchedule(Map<String, Object> para); //Object로 넣기 
+	//유저가 선택한 거
+	public MovieSchedule selectUschedule(int schedulesrn);
+	//영화정보 뽑기 -> 유저가 선택한 영화
+	public Movie selectUmovie(int moviesrn);
+	//상영관정보 뽑기 - 행,열 출력
+	public TheaterRoom selectUroom(int schedulesrn);
+	
+	//선택한 관객타입 반환하기
+	public int selectUatype(String id);
+	//선택한 관객타입의 갯수 반환하기
+	public int selectUasum(String id);
+	//선택한 관객타입의 총가격 계산하기
+	public int selectUprice(String id);
+	
+	//해당 상영관의 예매된 좌석 뽑기 
+	public List<String> selectPayedseat(int schedulesrn);
+	//해당 상영관의 예매된 좌석 갯수 뽑기
+	public int selectPayedsum(int schedulesrn);
 		
 	//결제완료 
-	public int payInsert(Map<String, String> para);
+	public int payInsert(Map<String, Object> para);
+	//최근 paysrn 출력
+	public int selectPaysrn();
 	//예매DB에 삽입
 	public int ticketInsert(Map<String, Object> para);
 	//관객DB에 삽입

@@ -7,11 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Payment {
-	private String totalprice;
-	private String paymentmethod;
-	private String paydate;
-	private String payip;
-	private int paysrn;
-	
+public class MypageReply {
+	private String title;
+	private String replycontent;
+	private String replydate;
+	private int star;
 }

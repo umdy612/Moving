@@ -4,21 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page session="false"%>
-<!DOCTYPE html>
-<html lang = "ko">
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-</head>
-<body>
+<%@ include file= "/resources/inc/adminHeader.jsp" %>
 <script>
 	var roominsert = '${roominsert}';
 	if(roominsert.length != 0){alert(roominsert);}
@@ -277,5 +263,4 @@
 		  });
 		});
 	</script>
-</body>
-</html>
+<%@ include file= "/resources/inc/adminFooter.jsp" %>

@@ -9,13 +9,13 @@
 <div class="container">
 <div class="row cont1">
 	<div class="container col-sm-1  sidebar1">
-		<div class="row sidevar_num1" style="background-color:red;" ></div>   <!-- style="background-color:red;" -->
-		<div class="row sidevar_num2"></div>
-		<div class="row sidevar_num3"></div>
+		<div id="sidevar_num1"  style="background-color: rgb(150, 3, 0); color:white;" >영화선택</div>   <!-- style="background-color:red;" -->
+		<div id="sidevar_num2">좌석선택</div>
+		<div id="sidevar_num3">좌석결제</div>
 	</div>
 	<div class="col-sm-11">
 	<h3>영화 예매</h3>
-	<div class="row cont2">
+	<div class="row cont2 cont2_page1">
 			<div class="col-sm-3 section-movie">
 				<div class="col-head text-center">
 					<p class="movie_title title">영 화</p>
@@ -62,6 +62,7 @@
 				</div>
 				<div class="col-body">
 					<div class="time_list list"></div>
+					<div class="nextbtn"></div>
 				</div>
 			</div>
 	</div>
@@ -113,20 +114,44 @@
 			});
 			
 			$("body").on("click", ".tdate", function(){
-				var inputdate = $(this).attr("data-role");
-				$.ajax({
+				var inputdate = $(this).attr("data-role"); 
+ 				$.ajax({
 					url:"ticketing4.hj/"+inputdate,
 					type:"GET",
 					dataType:"json",
 					contentType:"application/json;charset=UTF-8",
 					error:function(xhr, status, msg){alert(status + "/" + msg);},
 					success:function(json){
-						
 						$(".time_list").empty();
+						var slength = json.time.length;
+						for(var i=0; i<slength; i++){
+							$("<p>").html($("<button class='tschedule' style='border:none' data-role='"+json.time[i].schedulesrn+"'>")
+									.html(json.time[i].roomname + " / " + json.time[i].screeningtime))
+									.appendTo(".time_list");
+						} 
 						
 					}
 				});
 			});
+			
+			$("body").on("click", ".tschedule", function(){
+				var schedulesrn = $(this).attr("data-role");
+				//console.log(schedulesrn);
+				$.ajax({
+					url:"ticketing5.hj/"+schedulesrn,
+					type:"GET",
+					dataType:"json",
+					contentType:"application/json;charset=UTF-8",
+					error:function(xhr, status, msg){alert(status + "/" + msg);},
+					success:function(json){
+						$(".nextbtn").empty();
+						$("<p>").html($("<a class='btn btn-info nextpage' href='ticketing6.hj'>좌석선택</a>"))
+								.appendTo(".nextbtn");
+					}
+				});
+			}); 
+			
+			
 		});
 	</script>
 	

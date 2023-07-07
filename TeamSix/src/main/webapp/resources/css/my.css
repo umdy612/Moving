@@ -117,6 +117,59 @@ a:hover{
 	margin-right: 5px;
 }
 
+/* 해인 */
+/* .container.movieForm {
+    width: 777px;
+} */
+.detailContainer {
+    margin-left: 3px;
+}
+p.movieDetailTitle {
+    font-weight: bold;
+    font-size: large;
+}
+
+.movieChartOrder {
+    padding-top: 15px;
+}
+.movieChartContentsContainer {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.movieChartContentContainer {
+    margin: 1%;
+	text-align: center;
+	position: relative;
+}
+.movieChartRank5 {
+    font-size: 50px;
+    left: 15px;
+    color: white;
+    background-color: rgb(150, 3, 0);
+    height: 66px;
+    text-shadow: 2px 2px 2px black;
+}
+.movieChartRank10 {
+    font-size: 50px;
+    left: 15px;
+}
+.movieChartPRBox .movieChartRating img {
+    position: absolute;
+    top: 5px;
+    left: 20px;
+    width: 20px;
+    height: 20px;
+}
+.movieChartPRBox {
+    margin-bottom: 7%;
+}
+
+/*  */
+/*  */
+/*  */
+
 /* 혜진 수정 시작 */
 div.cont1 {
 	margin-top:50px;
@@ -125,16 +178,27 @@ div.cont1 {
 div.sidebar1 {
 	height:500px;
 	margin-top:80px;
-	background-color:#FFF5EE;
 }
 
-div.sidevar_num1, div.sidevar_num2, div.sidevar_num3 {
+div#sidevar_num1, div#sidevar_num2, div#sidevar_num3 {
+	line-height:167px;
+	text-align:center;
 	height:167px;
-	width:120%
+	width:100%;
+	font-weight:bold;
+	background-color:"#FAFAD2";
 }
 
 div.cont2 {
 	margin-top:30px;
+/* 	margin-bottom:100px; */ /* page2때문에.. */
+}
+
+div.cont2_page1 {
+	margin-bottom:100px;
+}
+
+div.cont3 {
 	margin-bottom:100px;
 }
 
@@ -161,6 +225,58 @@ div.regbtn>a#regbtn {
 
 p>span.mrating {
 	color:red;
+}
+
+div.col-body>div.myselect {
+	padding: 10px;
+    padding-top: 30px;
+    padding-left: 15px;
+    font-size: 15px;
+    height: 150px;
+    background-color:rgb(242,242,242);
+}
+
+div.col-body>div.seattype {
+	padding-top: 12px;
+	height: 150px;
+	border-left : solid gray 3px;
+	background-color:rgb(242,242,242);
+}
+
+p>span.type1, p>span.type3 {
+	font-size: 15px;
+    font-weight: bold;
+    margin-right: 25px;
+}
+
+p>span.type2 {
+	font-size: 15px;
+    font-weight: bold;
+    margin-right: 12px;
+}
+
+div.col-body>div.btnline {
+	height: 150px;
+	background-color:rgb(242,242,242);
+}
+
+div.section-graph>div.seatgraph {
+	background-color:#DCDCDC;
+	height : 600px;	
+}
+
+div.screen {
+	width: 500px;
+    border: solid 3px gray;
+    position: relative;
+    left: 220px;
+    top: 70px;
+}
+
+div.seatingchart {
+    position: relative;
+    left: 330px;
+    top: 100px;
 }
 
 

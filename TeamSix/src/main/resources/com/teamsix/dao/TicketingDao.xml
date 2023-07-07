@@ -12,21 +12,48 @@
 	<select id="selectTheater" resultType="TheaterVO">
 		select * from Theater  order by theatername asc;
 	</select>
-	<!-- 해당 영화에 맞는 영화관 리스트 뽑기 (영화 선택 후에 출력) -->
+	<!-- 해당 영화에 맞고, 스케줄이 오늘부터~ 있는 영화관 리스트 뽑기 (영화 선택 후에 출력) -->
 	<select id="selectCheckTheater" parameterType="int" resultType="TheaterVO">
-		select theatersrn, theatername, location, manager, contactnum from theater 
+		select distinct theatersrn, theatername, location, manager, contactnum from theater 
 		join theaterroom using(theatersrn) join MovieSchedule using(roomsrn)
-		where moviesrn=#{moviesrn} order by theatername asc;
+		where moviesrn=#{moviesrn} and screeningdate >= (select date_format(now(), '%Y-%m-%d')) order by theatername asc;
 	</select>
 	<!-- 상영스케줄 뽑기 : <영화,영화관,날짜> 날짜는 앞에서 선택한 값을 input type=hidden으로 -->
 	<select id="selectMovieSchedule" parameterType="java.util.HashMap" resultType="MovieScheduleVO" > 
-		select m.schedulesrn ,m.screeningtime from MovieSchedule m join TheaterRoom r using(roomsrn) 
+		select m.schedulesrn, m.screeningdate , m.screeningtime, m.moviesrn, m.roomsrn, r.roomname from MovieSchedule m join TheaterRoom r using(roomsrn) 
 		where r.theatersrn=#{keyword1} and m.moviesrn=#{keyword2} and m.screeningdate=#{keyword3}
 	</select>
+	<!-- 영화정보 뽑기 -->
+	<select id="selectTmovie" parameterType="int" resultType="MovieVO">
+		select * from movie where moviesrn=#{moviesrn}
+	</select>
+	<!-- 상영스케줄 뽑기 : 선택한 스케줄 -->
+	<select id="selectTschedule" parameterType="int" resultType="MovieScheduleVO">
+		select * from movieschedule where schedulesrn=${schedulesrn}
+	</select>
+	<!-- 상영관정보 뽑기 : 행,열 뽑기 위해  -->
+	<select id="selectTroom" parameterType="int" resultType="TheaterRoomVO">
+		select * from theaterroom where roomsrn=(select roomsrn from movieschedule where schedulesrn=#{schedulesrn}) 
+	</select>
+	<!-- 해당 상영관에 예매된 좌석 뽑기 -->
+	<select id="selectPayedseat" parameterType="int" resultType="String">
+		select seat from theaterroom join movieschedule using(roomsrn) join ticketing using(schedulesrn)
+		join audience using(paysrn) where schedulesrn = #{schedulesrn};
+	</select>
+	<!-- 해당 상영관에 예매된 좌석 갯수 뽑기  -->
+	<select id="selectPayedsum" parameterType="int" resultType="int">
+		select count(*)`payed` from (select seat from theaterroom join movieschedule using(roomsrn) 
+		join ticketing using(schedulesrn) join audience using(paysrn) where schedulesrn = #{schedulesrn}) A
+	</select>
+	
 	<!-- 결제하기 -->
 	<insert id="payInsert" parameterType="java.util.HashMap">
 		insert into Payment (totalprice, paymentmethod, payip) values (#{keyword1},#{keyword2},#{keyword3})
 	</insert>
+	<!-- 최근 paysrn  -->
+	<select id="selectPaysrn" resultType="int">
+		select paysrn from payment order by paydate desc limit 1;
+	</select>
 	<!-- 예매DB에 삽입 -->
 	<insert id="ticketInsert" parameterType="java.util.HashMap"> 
 		insert into Ticketing (paysrn, userid, schedulesrn) values (#{keyword1}, #{keyword2}, #{keyword3})

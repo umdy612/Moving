@@ -4,24 +4,28 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page session="false"%>
-<%@ include file= "/resources/inc/adminHeader.jsp" %>
-<script>
-	var insert = '${insert}';
-	if(insert.length != 0){alert(insert);}
+<!DOCTYPE html>
+<html lang = "ko">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
-	var update = '${update}';
-	if(update.length != 0){alert(update);}
-	
-	var deletem = '${deletem}';
-	if(deletem.length != 0){alert(deletem);}
-</script>
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
 	<div class="container panel" style="margin-top:30px">
-		<h3>영화관 등록</h3>
+		<h3>영화관 검색</h3>
 		<table class="table table-striped text-left">
 			<caption>영화관 관리</caption>
 			<thead>
 				<tr>
-					<th scope="col">NO</th>
+					<th scope="col">영화관 지점명</th>
 					<th scope="col">이름</th>
 					<th scope="col">상영관 수</th>
 					<th scope="col">위치</th>
@@ -39,5 +43,5 @@
 		<a href="${pageContext.request.contextPath}/hj/theaterreg.hj" class="btn btn-info" id="regbtn">영화관 등록</a>
 		</div>
 	</div>
-	
-<%@ include file= "/resources/inc/adminFooter.jsp" %>
+</body>
+</html>

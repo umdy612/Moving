@@ -29,4 +29,8 @@ public interface AdminTheaterDao {
 	// 상영관 삭제하기
 	public int theaterRoomDelete(int srn);
 	
+	// 상영스케줄 만들기
+	// 영화관 지점명 검색 후 상영관 리스트 띄우기 
+	public List<TheaterRoom> searchroomlist(String search);
+	
 }
